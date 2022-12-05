@@ -25,6 +25,7 @@ except ValueError:
     print("Špatný formát datumu!")
     exit()
 
+
 years["průtok"] = years.groupby(years["datum"].dt.year)["průtok"].transform("mean")
 years["průtok"] = round(years["průtok"], 4)
 
