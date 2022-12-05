@@ -1,8 +1,15 @@
 import pandas as pd
 import datetime as dt
 
-input = pd.read_csv("vstup.csv", names=["ID", "QD", "datum", "průtok"], dtype={"datum":str, "průtok":float})
 
+try:
+    input = pd.read_csv("vstup.csv", names=["ID", "QD", "datum", "průtok"], dtype={"datum":str, "průtok":float})
+except IOError:
+    print("Soubor nelze otevřít!")
+    exit()
+except ValueError:
+    print("Chyba vstupních dat!")
+    exit()
 
 
 
@@ -12,8 +19,11 @@ weeks = input.copy()
 def getWeek(index):
     return int(index / 7)
 
-years["datum"] = pd.to_datetime(years["datum"], format="%d.%m.%Y")
-
+try:
+    years["datum"] = pd.to_datetime(years["datum"], format="%d.%m.%Y")
+except ValueError:
+    print("Špatný formát datumu!")
+    exit()
 
 years["průtok"] = years.groupby(years["datum"].dt.year)["průtok"].transform("mean")
 years["průtok"] = round(years["průtok"], 4)
