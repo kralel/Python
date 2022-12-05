@@ -12,7 +12,7 @@ except ValueError:
     exit()
 
 
-print(input)
+
 
 years = input.copy()
 weeks = input.copy()
