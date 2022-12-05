@@ -2,14 +2,7 @@ import pandas as pd
 import datetime as dt
 
 
-try:
-    input = pd.read_csv("vstup.csv", names=["ID", "QD", "datum", "průtok"], dtype={"datum":str, "průtok":float})
-except IOError:
-    print("Soubor nelze otevřít!")
-    exit()
-except ValueError:
-    print("Chyba vstupních dat!")
-    exit()
+input = pd.read_csv("vstup.csv", names=["ID", "QD", "datum", "průtok"], dtype={"datum":str, "průtok":float})
 
 
 
