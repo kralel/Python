@@ -1,0 +1,15 @@
+{
+  "jmeno": "P+R Zličín",
+  "kapacita": {
+    "obycejne": 340,
+    "ztp": 6,
+    "elektromobily": 10
+  },
+  "pr": true,
+  "zaplnenost": 320,
+  "seznam": [
+    1,
+    2,
+    3
+  ]
+}
